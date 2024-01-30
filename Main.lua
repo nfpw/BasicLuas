@@ -19,18 +19,55 @@ while getgenv().AntiAfk == true do
 wait(10)
 end
 
+local Arara = workspace:GetDescendants()
+
 function AutoClick()
     while getgenv().AutoClick == true do
-        ClickRemote:InvokeServer()
+        game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF.GQIhXRfoRgwQELLNGaSu:InvokeServer()
         wait(0.3)
     end
 end
 
+function AutoRace()
+    while getgenv().AutoRace == true do
+        print("*AutoRacing*")
+        wait()
+    end
+end
+
+local function RoundChecker(str)
+    return string.find(str, "%d") ~= nil
+end
+
+local RoundTimer = player.PlayerGui.ScreenGui.RoundTimer.Text
+local nfpw = game.Players.LocalPlayer
+local berke081 = nfpw.Character
+local Osursx = berke081 and berke081:FindFirstChild("HumanoidRootPart")
+
+while true do
+    if RoundChecker(RoundTimer) then
+        if getgenv().AutoRace == true then
+            for _, OmerFaruq in ipairs(Arara) do
+                if descendant:IsA("Part") and descendant.Name == "ServerCheckpoint" then
+                    if OmerFaruq:GetAttributes(16) then
+                        Osursx.CFrame = OmerFaruq.CFrame
+                    end
+                end
+            end
+        end
+    else
+        print("Round not started")
+    end
+    task.wait()
+end
+
+
+
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({IntroText = "Hi",Name = "nfpw-Lazy.lua", HidePremium = true})
 getgenv().AntiAfk = true
-local ClickRemote = game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF.GQIhXRfoRgwQELLNGaSu
 getgenv().AutoClick = false
+getgenv().AutoRace = false
 
 local FarmTab = Window:MakeTab({
 	Name = "Farm",
@@ -44,6 +81,15 @@ FarmTab:AddToggle({
 	Callback = function(Value)
         getgenv().AutoClick = Value 
         AutoClick() 
+    end
+})
+
+FarmTab:AddToggle({
+	Name = "Auto-Race",
+	Default = false,
+	Callback = function(Value)
+        getgenv().AutoRace = Value 
+        AutoRace() 
     end
 })
 
