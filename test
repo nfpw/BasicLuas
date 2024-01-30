@@ -1,25 +1,28 @@
--- Assume AttributesNumber is set to 1
-local AttributesNumber = 1
+-- Assume ServerCheckpoint is the part you want to use
+local ServerCheckpointName = "ServerCheckpoint"
 
--- Get all descendants of workspace
-local descendants = workspace:GetDescendants()
+-- Get the LocalPlayer and HumanoidRootPart
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
--- Find and iterate through ServerCheckpoint
-for _, descendant in ipairs(descendants) do
-    if descendant:IsA("Part") and descendant.Name == "ServerCheckpoint" then
-        local serverCheckpoint = descendant
-
-        -- Check if ServerCheckpoint exists and has attributes
-        if serverCheckpoint:GetAttributes() then
-            for i = 1, AttributesNumber do
-                local attributeName = "Attribute" .. i
-                local attributeValue = serverCheckpoint:GetAttribute(attributeName)
-
-                -- Print attribute name and value
-                print("Attribute", i, ":", attributeName, "=", attributeValue)
-            end
-        else
-            print("ServerCheckpoint found but does not have attributes.")
+-- Function to find a part by name
+local function findPart(partName)
+    local descendants = workspace:GetDescendants()
+    for _, descendant in ipairs(descendants) do
+        if descendant:IsA("Part") and descendant.Name == partName then
+            return descendant
         end
     end
+    return nil
+end
+
+-- Find ServerCheckpoint part
+local serverCheckpointPart = findPart(ServerCheckpointName)
+
+-- Set LocalPlayer.HumanoidRootPart.CFrame to ServerCheckpointPart.CFrame
+if serverCheckpointPart then
+    humanoidRootPart.CFrame = serverCheckpointPart.CFrame
+else
+    warn("ServerCheckpoint part not found.")
 end
