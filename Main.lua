@@ -23,8 +23,13 @@ local Arara = workspace:GetDescendants()
 
 function AutoClick()
     while getgenv().AutoClick == true do
-        local ClickRemote = game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF:WaitForChild("GQIhXRfoRgwQELLNGaSu")
-        ClickRemote:InvokeServer()
+        for _, SoktumunClickRemotunuDestroylamayin in ipairs(game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF:GetChildren()) do
+            if SoktumunClickRemotunuDestroylamayin.Name == "GQIhXRfoRgwQELLNGaSu" then
+                SoktumunClickRemotunuDestroylamayin:InvokeServer()
+            else
+                print("Remotunu Yemişler")
+            end
+        end
         wait(0.3)
     end
 end
