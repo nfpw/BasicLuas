@@ -23,7 +23,8 @@ local Arara = workspace:GetDescendants()
 
 function AutoClick()
     while getgenv().AutoClick == true do
-        game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF.GQIhXRfoRgwQELLNGaSu:InvokeServer()
+        local ClickRemote = game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF:WaitForChild("GQIhXRfoRgwQELLNGaSu")
+        ClickRemote:InvokeServer()
         wait(0.3)
     end
 end
@@ -48,7 +49,7 @@ while true do
     if RoundChecker(RoundTimer) then
         if getgenv().AutoRace == true then
             for _, OmerFaruq in ipairs(Arara) do
-                if OmerFaruq:IsA("Part") and OmerFaruq.Name == "ServerCheckpoint" then
+                if descendant:IsA("Part") and descendant.Name == "ServerCheckpoint" then
                     if OmerFaruq:GetAttributes(16) then
                         Osursx.CFrame = OmerFaruq.CFrame
                     end
@@ -60,6 +61,8 @@ while true do
     end
     task.wait()
 end
+
+
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({IntroText = "Hi",Name = "nfpw-Lazy.lua", HidePremium = true})
