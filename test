@@ -1,0 +1,25 @@
+-- Assume AttributesNumber is set to 1
+local AttributesNumber = 1
+
+-- Get all descendants of workspace
+local descendants = workspace:GetDescendants()
+
+-- Find and iterate through ServerCheckpoint
+for _, descendant in ipairs(descendants) do
+    if descendant:IsA("Part") and descendant.Name == "ServerCheckpoint" then
+        local serverCheckpoint = descendant
+
+        -- Check if ServerCheckpoint exists and has attributes
+        if serverCheckpoint:GetAttributes() then
+            for i = 1, AttributesNumber do
+                local attributeName = "Attribute" .. i
+                local attributeValue = serverCheckpoint:GetAttribute(attributeName)
+
+                -- Print attribute name and value
+                print("Attribute", i, ":", attributeName, "=", attributeValue)
+            end
+        else
+            print("ServerCheckpoint found but does not have attributes.")
+        end
+    end
+end
