@@ -1,5 +1,5 @@
 while getgenv().AntiAfk == true do
-	Players = game:GetService("Players")
+    Players = game:GetService("Players")
 	local GC = getconnections or get_signal_cons
 	if GC then
 		for i,v in pairs(GC(Players.LocalPlayer.Idled)) do
@@ -16,55 +16,55 @@ while getgenv().AntiAfk == true do
 			VirtualUser:ClickButton2(Vector2.new())
 		end)
 	end
-	wait(10)
+wait(10)
 end
 
 local Arara = workspace:GetDescendants()
 
 function AutoClick()
-	while getgenv().AutoClick == true do
-		for _, SoktumunClickRemotunuDestroylamayin in ipairs(game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF:GetChildren()) do
-			if SoktumunClickRemotunuDestroylamayin.Name == "GQIhXRfoRgwQELLNGaSu" then
-				SoktumunClickRemotunuDestroylamayin:GetFullName():InvokeServer()
-			else
-				print("Remotunu Yemişler")
-			end
-		end
-		wait(0.3)
-	end
+    while getgenv().AutoClick == true do
+        for _, SoktumunClickRemotunuDestroylamayin in ipairs(game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF:GetChildren()) do
+            if SoktumunClickRemotunuDestroylamayin.Name == "GQIhXRfoRgwQELLNGaSu" then
+                game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF[SoktumunClickRemotunuDestroylamayin.Name]:InvokeServer()
+            else
+                print("Remotunu Yemişler")
+            end
+        end
+        wait(0.3)
+    end
 end
 
 function AutoRace()
-	while getgenv().AutoRace == true do
-		print("*AutoRacing*")
-		wait()
-	end
+    while getgenv().AutoRace == true do
+        print("*AutoRacing*")
+        wait()
+    end
 end
 
 local function RoundChecker(str)
-	return string.find(str, "%d") ~= nil
+    return string.find(str, "%d") ~= nil
 end
 
+local RoundTimer = player.PlayerGui.ScreenGui.RoundTimer.Text
 local nfpw = game.Players.LocalPlayer
-local RoundTimer = nfpw.PlayerGui.ScreenGui.RoundTimer.Text
 local berke081 = nfpw.Character
 local Osursx = berke081 and berke081:FindFirstChild("HumanoidRootPart")
 
 while true do
-	if RoundChecker(RoundTimer) then
-		if getgenv().AutoRace == true then
-			for _, OmerFaruq in ipairs(Arara) do
-				if OmerFaruq:IsA("Part") and OmerFaruq.Name == "ServerCheckpoint" then
-					if OmerFaruq:GetAttributes(16) then
-						Osursx.CFrame = OmerFaruq.CFrame
-					end
-				end
-			end
-		end
-	else
-		print("Round not started")
-	end
-	task.wait()
+    if RoundChecker(RoundTimer) then
+        if getgenv().AutoRace == true then
+            for _, OmerFaruq in ipairs(Arara) do
+                if OmerFaruq:IsA("Part") and OmerFaruq.Name == "ServerCheckpoint" then
+                    if OmerFaruq:GetAttributes(16) then
+                        Osursx.CFrame = OmerFaruq.CFrame
+                    end
+                end
+            end
+        end
+    else
+        print("Round not started")
+    end
+    task.wait()
 end
 
 
@@ -85,18 +85,18 @@ FarmTab:AddToggle({
 	Name = "Auto-Clicker",
 	Default = false,
 	Callback = function(Value)
-		getgenv().AutoClick = Value 
-		AutoClick() 
-	end
+        getgenv().AutoClick = Value 
+        AutoClick() 
+    end
 })
 
 FarmTab:AddToggle({
 	Name = "Auto-Race",
 	Default = false,
 	Callback = function(Value)
-		getgenv().AutoRace = Value 
-		AutoRace() 
-	end
+        getgenv().AutoRace = Value 
+        AutoRace() 
+    end
 })
 
 OrionLib:Init()
@@ -104,3 +104,4 @@ OrionLib:Init()
 --workspace.Runtime.RaceChunk.ServerCheckpoint
 --Attributes Number: 1
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/nfpw/BasicLuas/main/test"))()
+--loadstring(game:HttpGet("https://github.com/nfpw/BasicLuas/blob/main/Main.lua"))()
