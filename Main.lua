@@ -52,7 +52,7 @@ local Osursx = berke081 and berke081:FindFirstChild("HumanoidRootPart")
 
 while true do
     if RoundChecker(RoundTimer) then
-        if getgenv().AutoRace == true then
+        --[[if getgenv().AutoRace == true then
             for _, OmerFaruq in ipairs(Arara) do
                 if OmerFaruq:IsA("Part") and OmerFaruq.Name == "ServerCheckpoint" then
                     if OmerFaruq:GetAttributes(16) then
@@ -60,7 +60,8 @@ while true do
                     end
                 end
             end
-        end
+        end]]
+	print("*AutoRacing*")
     else
         print("Round not started")
     end
