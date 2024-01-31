@@ -1,28 +1,12 @@
--- Assume ServerCheckpoint is the part you want to use
-local ServerCheckpointName = "ServerCheckpoint"
+local nfpw = game.Players.LocalPlayer
+local RoundTimer = nfpw.PlayerGui.ScreenGui.RoundTimer.Text
 
--- Get the LocalPlayer and HumanoidRootPart
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-
--- Function to find a part by name
-local function findPart(partName)
-    local descendants = workspace:GetDescendants()
-    for _, descendant in ipairs(descendants) do
-        if descendant:IsA("Part") and descendant.Name == partName then
-            return descendant
-        end
-    end
-    return nil
+local function containsNumbers(str)
+    return string.match(str, "%d") ~= nil
 end
 
--- Find ServerCheckpoint part
-local serverCheckpointPart = findPart(ServerCheckpointName)
-
--- Set LocalPlayer.HumanoidRootPart.CFrame to ServerCheckpointPart.CFrame
-if serverCheckpointPart then
-    humanoidRootPart.CFrame = serverCheckpointPart.CFrame
+if containsNumbers(RoundTimer) then
+    print("test1")
 else
-    warn("ServerCheckpoint part not found.")
+    print("test2")
 end
