@@ -26,7 +26,7 @@ function AutoClick()
         for _, SoktumunClickRemotunuDestroylamayin in ipairs(game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF:GetChildren()) do
             if SoktumunClickRemotunuDestroylamayin.Name == "GQIhXRfoRgwQELLNGaSu" then
                 game:GetService("ReplicatedStorage").Knit.Services.ClickerService.RF[SoktumunClickRemotunuDestroylamayin.Name]:InvokeServer()
-            else
+            elseif SoktumunClickRemotunuDestroylamayin.Name ~= "GQIhXRfoRgwQELLNGaSu" then
                 print("Remotunu Yemişler")
             end
         end
@@ -52,16 +52,15 @@ local Osursx = berke081 and berke081:FindFirstChild("HumanoidRootPart")
 
 while true do
     if RoundChecker(RoundTimer) then
-        --[[if getgenv().AutoRace == true then
+        if getgenv().AutoRace == true then
             for _, OmerFaruq in ipairs(Arara) do
                 if OmerFaruq:IsA("Part") and OmerFaruq.Name == "ServerCheckpoint" then
-                    if OmerFaruq:GetAttributes(16) then
+                    if OmerFaruq:GetAttribute(16) then
                         Osursx.CFrame = OmerFaruq.CFrame
                     end
                 end
             end
-        end]]
-	print("*AutoRacing*")
+        end
     else
         print("Round not started")
     end
