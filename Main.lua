@@ -1,3 +1,5 @@
+print("testing if ur shity executor detected my github")
+
 while getgenv().AntiAfk == true do
     Players = game:GetService("Players")
 	local GC = getconnections or get_signal_cons
