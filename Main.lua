@@ -104,4 +104,4 @@ OrionLib:Init()
 --workspace.Runtime.RaceChunk.ServerCheckpoint
 --Attributes Number: 1
 --loadstring(game:HttpGet("https://raw.githubusercontent.com/nfpw/BasicLuas/main/test"))()
---loadstring(game:HttpGet("https://github.com/nfpw/BasicLuas/blob/main/Main.lua"))()
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/nfpw/BasicLuas/main/Main.lua"))()
