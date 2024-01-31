@@ -45,8 +45,8 @@ local function RoundChecker(str)
     return string.find(str, "%d") ~= nil
 end
 
-local RoundTimer = player.PlayerGui.ScreenGui.RoundTimer.Text
 local nfpw = game.Players.LocalPlayer
+local RoundTimer = nfpw.PlayerGui.ScreenGui.RoundTimer.Text
 local berke081 = nfpw.Character
 local Osursx = berke081 and berke081:FindFirstChild("HumanoidRootPart")
 
